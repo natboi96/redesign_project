@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virginia's Judicial System Home</title>
+    <style>
+        /* Basic styling for the logo bar and sidebar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #logo-bar {
+            background-color: #415a8d;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            height: 100px; /* Increased height for the logo bar */
+        }
+        #sidebar {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            height: 100%;
+        }
+        #content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        /* Style for the navigation menu items */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .submenu {
+            list-style-type: disc;
+            list-style-position: outside; /* Place the bullets outside the text */
+            font-size: 16px; /* Adjust the bullet size */
+            color: #fff; /* Set bullet color */
+        }
+        .menuItem {
+            padding: 10px;
+            text-align: center;
+            position: relative; /* Added for positioning the dropdown */
+            transition: all 0.2s;
+        }
+        .menuItemHome {
+            padding: 10px;
+            text-align: center;
+            position: relative; /* Added for positioning the dropdown */
+            transition: all 0.2s;
+        }
+        .menuItem:hover {
+            background-color: #444;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Style for the dropdown menus */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            padding: 10px;
+            max-width:fit-content;
+            width: 100%;
+            z-index: 1;
+        }
+        li:hover .dropdown {
+            display: block;
+        }
+        /* Shift down effect */
+        .menuItem:hover ~ .menuItem {
+            transform: translateY(300px);
+        }
+        /* Style for the input field */
+        #text-input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #eee;
+        }
+        .tab-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo-bar">
+        <h1>Virginia's Judicial System</h1>
+    </div>
+    <div id="sidebar">
+        <input type="text" id="text-input" placeholder="Search" style="max-width:fit-content">
+        <ul>
+            <li class="menuItemHome"><a href="#">Home</a>
+            </li>
+            <li class="menuItem"><a href="#">Virginia's Court System</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li><a href="#">Virginia Courts in Briefs</a></li>
+                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
+                        <li><a href="#">Supreme Court of Virginia</a></li>
+                        <li><a href="#">Court of Appeals of Virginia</a></li>
+                        <li><a href="#">Circuit Courts</a></li>
+                        <li><a href="#">General District Courts</a></li>
+                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
+                        <li><a href="magistrateservices.html">Magistrate Services</a></li>
+                        <li><a href="#">Special Justices</a></li>
+                        <li><a href="#">Employment Opportunities</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><a href="#">Online Services</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li><a href="#">Calculate Fees</a></li>
+                        <li><a href="#">Pay Traffic Fees and Offenses</a></li>
+                        <li><a href="#">Assistance with Protective Order (I-CAN!)</a></li>
+                        <li><a href="#">Electronic Voucher Payment System</a></li>
+                        <li><a href="#">Virginia Appellate Courts Electronic Filing System</a></li>
+                        <li><a href="#">Virginia Judiciary E-Filing System</a></li>
+                        <li><a href="#">Virginia Date of Birth Confirmation</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><a href="#">Directories</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li><a href="#">Virginia Courts in Briefs</a></li>
+                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
+                        <li><a href="#">Supreme Court of Virginia</a></li>
+                        <li><a href="#">Court of Appeals of Virginia</a></li>
+                        <li><a href="#">Circuit Courts</a></li>
+                        <li><a href="#">General District Courts</a></li>
+                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
+                        <li><a href="#">Magistrate Services</a></li>
+                        <li><a href="#">Special Justices</a></li>
+                        <li><a href="#">Employment Opportunities</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><a href="#">Programs</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li><a href="#">Virginia Courts in Briefs</a></li>
+                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
+                        <li><a href="#">Supreme Court of Virginia</a></li>
+                        <li><a href="#">Court of Appeals of Virginia</a></li>
+                        <li><a href="#">Circuit Courts</a></li>
+                        <li><a href="#">General District Courts</a></li>
+                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
+                        <li><a href="#">Magistrate Services</a></li>
+                        <li><a href="#">Special Justices</a></li>
+                        <li><a href="#">Employment Opportunities</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><a href="#">Help and FAQ</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li><a href="#">Virginia Courts in Briefs</a></li>
+                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
+                        <li><a href="#">Supreme Court of Virginia</a></li>
+                        <li><a href="#">Court of Appeals of Virginia</a></li>
+                        <li><a href="#">Circuit Courts</a></li>
+                        <li><a href="#">General District Courts</a></li>
+                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
+                        <li><a href="#">Magistrate Services</a></li>
+                        <li><a href="#">Special Justices</a></li>
+                        <li><a href="#">Employment Opportunities</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="tabs">
+            <div class="tab"><a href="#" style="color:black">For Citizens</a></div>
+            <div class="tab"><a href="#" style="color:black">For Legal Community</a></div>
+            <div class="tab"><a href="#" style="color:black">For Students/Teachers</a></div>
+            <div class="tab"><a href="#" style="color:black">Quick Links</a></div>
+        </div>
+        <div>
+            <h3>Welcome to the Website of Virginia's Judicial System</h3>
+            <p>Our aim is to assure that disputes are resolved justly, promptly, and economically through a court system unified in its structures and administration. This system is comprised of the Supreme Court of Virginia, the Court of Appeals of Virginia, circuit courts in thirty-one judicial circuits,Supreme Court of Virginia general district and juvenile and domestic relations district courts in thirty-two districts, and magistrates in offices in thirty-two districts. The administrative office of the courts, known in Virginia as the Office of the Executive Secretary, supports the administration of the court system under the direction of the Chief Justice and the Executive Secretary. </p>
+            <p>Yapping continues...</p>
+        </div>
+    </div>
+</body>
+</html>
