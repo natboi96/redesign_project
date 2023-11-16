@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virginia's Judicial System Home</title>
+    <title>Magistrate Services</title>
     <style>
         /* Basic styling for the logo bar and sidebar */
         body {
@@ -33,6 +33,9 @@
         ul {
             list-style-type: none;
             padding: 0;
+        }
+        .bulletedul {
+            list-style-type: disc;
         }
         .submenu {
             list-style-type: disc;
@@ -85,20 +88,24 @@
             margin: 10px;
         }
 
-        .tabs {
-            display: flex;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 20px;
+        .hyperlink {
+            color:black; 
+            text-decoration: underline;
         }
-        .tab {
-            flex: 1;
-            text-align: center;
+
+        .shadow {
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        select {
+            width: 200px;
             padding: 10px;
-            cursor: pointer;
-            background-color: #eee;
         }
-        .tab-content {
-            display: none;
+
+        option, optgroup {
+            color: black;
         }
     </style>
 </head>
@@ -121,7 +128,7 @@
                         <li><a href="#">Circuit Courts</a></li>
                         <li><a href="#">General District Courts</a></li>
                         <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
-                        <li><a href="magistrateservices.html">Magistrate Services</a></li>
+                        <li><a href="#">Magistrate Services</a></li>
                         <li><a href="#">Special Justices</a></li>
                         <li><a href="#">Employment Opportunities</a></li>
                     </ul>
@@ -191,16 +198,87 @@
         </ul>
     </div>
     <div id="content">
-        <div class="tabs">
-            <div class="tab"><a href="#" style="color:black">For Citizens</a></div>
-            <div class="tab"><a href="#" style="color:black">For Legal Community</a></div>
-            <div class="tab"><a href="#" style="color:black">For Students/Teachers</a></div>
-            <div class="tab"><a href="#" style="color:black">Quick Links</a></div>
+        <div id="info">
+            <p>Home > Online Services > Calculate Fees</p>
+            <h3>Circuit Court Civil Filing Fee Calculation</h3>
+            This is the civil filing fees calculation system for circuit courts in Virginia. <br>
+            IMPORTANT! Limited information about the calculation of fees for civil processes is located at " <a href="#" class="hyperlink">How To Calculate Civil Filing Fees for Circuit Courts.</a>."
+            If you have specific questions about the calculations or if the case type is not listed, contact the civil division of your local circuit court. <br>
+            Note: This site is intended for general public use only. Commonwealth, Local, or Federal Agency filers should contact your local circuit court to determine applicable filing fees for your agency. <br>
+            <h4>Forms for civil cases:</h4>
+            *Please note that most civil cases filed in the Circuit Court are commenced by a complaint or petition, not a standard form. However, there are some Circuit Court forms that may be utilized. For a list of Circuit Court forms, click here: 
+            <a href="#" class="hyperlink">Circuit Court Forms: Civil</a> <br> <br>
+            The only District Court form that may be used in Circuit Court for civil cases is Form DC-472. If this form is needed, click here: 
+            <a href="#" class="hyperlink">Form DC-472- Petition for Reinstatement of Driving Privileges -Failure to Satisfy Judgement</a> <br> <br>
+            <a href="#" class="hyperlink">Call the circuit court to see if FORM CC-1416 Cover Sheet For Filing Civil Actions required. If so, click here FORM CC- 1416</a> <br>
+            If a form is not available for your filing type, you may need to seek the advice of an attorney.
         </div>
-        <div>
-            <h3>Welcome to the Website of Virginia's Judicial System</h3>
-            <p>Our aim is to assure that disputes are resolved justly, promptly, and economically through a court system unified in its structures and administration. This system is comprised of the Supreme Court of Virginia, the Court of Appeals of Virginia, circuit courts in thirty-one judicial circuits,Supreme Court of Virginia general district and juvenile and domestic relations district courts in thirty-two districts, and magistrates in offices in thirty-two districts. The administrative office of the courts, known in Virginia as the Office of the Executive Secretary, supports the administration of the court system under the direction of the Chief Justice and the Executive Secretary. </p>
-            <p>Yapping continues...</p>
+        <br>
+        <div id="calculator" class="shadow">
+            <div id="calculatorform" style="border-bottom: 1px solid #000">
+                <b>Circuit Courts:</b>
+                <select id="circuitcourt" >
+                    <option value="" disabled selected>Select Court</option>
+                    <optgroup label="Recent">
+                        <option value="loudoun">Loudoun Circuit</option>
+                        <option value="fairfax">Fairfax Circuit</option>
+                    </optgroup>
+                    <optgroup label="All">
+                        <option value="other">Other</option>
+                        <!-- Add the circuit courts here -->
+                    </optgroup>
+                </select>
+                <br>
+                What type of civil case do you want to file?
+                <select id="casetype">
+                    <option value="" disabled selected>Select Case Type</option>
+                </select>
+                <br>
+                <b>Note:</b> Contact your local <u>circuit court</u> for any filing fees associated with a civil process that is not listed above.
+                <br>
+                <br>
+                If you are filing a civil action for the award of monetary damages, enter the amount you are seeking to recover (i.e, lawsuit amount).
+                <br>
+                <input type="text" id="damages" placeholder="$" pattern="[0-9]*" inputmode="numeric">
+                <br>
+                <br>
+                Do you want to have the Virginia sheriff or high constable serve (deliver) a copy of the civil case to the Defendant/Respondent at the address you provide?
+                <br>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnosheriff" value="yes"> Yes
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnosheriff" value="no"> No (Press the calculate button)
+                    </label>
+                </div>
+                <br>
+                If Garnishment or Interrogatory, is a new levy of FiFa needed?
+                <br>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnofifa" value="yes"> Yes
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnofifa" value="no"> No (Press the calculate button)
+                    </label>
+                </div>
+                <br>
+                <br>
+                How many defendants/respondents are to be served by the Virginia sheriff or high constable? (In State)
+                <br>
+                <input type="text" id="defendants" pattern="[0-9]*" inputmode="numeric">
+                <br>
+                <br>
+                Press the <b>Calculate</b> button to display the total filing fees required based on the information provided above.
+            </div>
+            <div id="calculatoroutput">
+                p
+            </div>
         </div>
     </div>
 </body>
