@@ -16,7 +16,7 @@
             color: #fff;
             text-align: center;
             padding: 20px;
-            height: 100px; /* Increased height for the logo bar */
+            height: 100px; 
         }
         #sidebar {
             width: 240px;
@@ -28,9 +28,7 @@
         #content {
             margin-left: 240px;
             padding: 20px;
-            margin-top: 0px;
-            
-            
+            margin-top: -25px;
         }
         /* Style for the navigation menu items */
         ul {
@@ -183,22 +181,117 @@
                     <ul class="submenu">
                         <li class="submenuItem"><a href="pg.html">Glossary of Terms</a></li>
                         <li class="submenuItem"><a href="pg.html">FAQs</a></li>
-                        <li class="submenuItem"><a href="feedback.html">Site Feedback Form</a></li>
+                        <li class="submenuItem"><a href="pg.html">Site Feedback Form</a></li>
                     </ul>
                 </div>
             </li>
         </ul>
     </div>
     <div id="content">
-        <!-- <div class="tabs">
-            <div class="tab"><a href="#" style="color:black">For Citizens</a></div>
-            <div class="tab"><a href="#" style="color:black">For Legal Community</a></div>
-            <div class="tab"><a href="#" style="color:black">For Students/Teachers</a></div>
-            <div class="tab"><a href="#" style="color:black">Quick Links</a></div>
-        </div> -->
-            <h3 style="font-size: 25px; margin-left: 6px;">Welcome to the Website of Virginia's Judicial System</h3>
-            <img src="courts.jpeg" alt="Image of Virginia Courts" width="750" height="550">
-            <p>Our aim is to assure that disputes are resolved justly, promptly, and economically through a court system unified in its structures and administration. This system is comprised of the Supreme Court of Virginia, the Court of Appeals of Virginia, circuit courts in thirty-one judicial circuits,Supreme Court of Virginia general district and juvenile and domestic relations district courts in thirty-two districts, and magistrates in offices in thirty-two districts. The administrative office of the courts, known in Virginia as the Office of the Executive Secretary, supports the administration of the court system under the direction of the Chief Justice and the Executive Secretary. </p>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #feedback-form {
+            max-width: 400px;
+            margin: 20px auto;
+            margin-left: 7px;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #feedback-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #feedback-form input[type="text"],
+        #feedback-form input[type="email"],
+        #feedback-form select,
+        #feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #feedback-form button {
+            background-color: green;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #feedback-message {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p style="margin-left: -5px; margin-top: 3.5%;"><a href="index.html" style="color: black;">Home</a> > Help and FAQ > <a href="feedback.html" style="color: black;">Site Feedback Form</a></p>
+
+    <div id="feedback-form">
+        <h2>Site Feedback</h2>
+        <form id="userFeedbackForm">
+            <label for="fullName">Enter your full name:</label>
+            <input style="margin-bottom:5%;" type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Your email address:</label>
+            <input style="margin-bottom:5%;" type="email" id="email" name="email" required>
+
+            <label for="experience">How would you rate your experience with the site?</label>
+            <select style="margin-bottom:5%;" id="experience" name="experience" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="notSatisfied">Not Satisfied</option>
+                <option value="somewhatNotSatisfied">Somewhat Not Satisfied</option>
+                <option value="ok">OK</option>
+                <option value="satisfied">Satisfied</option>
+                <option value="verySatisfied">Very Satisfied</option>
+            </select >
+
+            <label for="suggestions">Do you have any suggestions to improve our website?</label>
+            <textarea style="margin-bottom:5%;" id="suggestions" name="suggestions" rows="4" cols="50"></textarea>
+
+            <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+
+            <div id="feedback-message"></div>
+        </form>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var experience = document.getElementById("experience").value;
+            var suggestions = document.getElementById("suggestions").value;
+
+            var feedbackMessage = document.getElementById("feedback-message");
+
+            feedbackMessage.innerHTML = "Your feedback has been submitted. Thank you!<br><br>"
+        }
+    </script>
+
+</body>
+</html>
+
+   
+</html>
+
 
     </div>
 </body>
