@@ -104,7 +104,7 @@
         }
 
         #calculateBtn {
-            background-color: #415a8d;
+            background-color: green;
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -114,12 +114,12 @@
 
         #calculatoroutput {
             display: none;
-            width: 70px; /* Adjust the width as needed */
+            width: 70px;
             padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            padding-left: 10px;
+            /* margin-top: 10px; */
+
+
         }
     </style>
 </head>
@@ -139,11 +139,11 @@
             <li class="menuItem"><i class="fa fa-fw fa-gavel"></i><a href="#">     Court Services</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li class="submenuItem"><a href="#">Supreme Court of Virginia</a></li>
-                        <li class="submenuItem"><a href="#">Court of Appeals of Virginia</a></li>
-                        <li class="submenuItem"><a href="#">Circuit Courts</a></li>
-                        <li class="submenuItem"><a href="#">General District Courts</a></li>
-                        <li class="submenuItem"><a href="#">Juvenile and Domestic Relations District Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">Supreme Court of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Court of Appeals of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Circuit Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">General District Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">Juvenile and Domestic Relations District Courts</a></li>
                         <li class="submenuItem"><a href="magistrateservices.html">Magistrates</a></li>
                     </ul>
                 </div>
@@ -152,12 +152,12 @@
                 <div class="dropdown">
                     <ul class="submenu">
                         <li class="submenuItem"></i><a href="calculatefees.html">Calculate Court Fees</a></li>
-                        <li class="submenuItem"><a href="#">Pay Traffic Fees and Offenses</a></li>
-                        <li class="submenuItem"><a href="#">Assistance with Protective Order (I-CAN!)</a></li>
-                        <li class="submenuItem"><a href="#">Electronic Voucher Payment System</a></li>
-                        <li class="submenuItem"><a href="#">Virginia Appellate Courts Electronic Filing System</a></li>
-                        <li class="submenuItem"><a href="#">Virginia Judiciary E-Filing System</a></li>
-                        <li class="submenuItem"><a href="#">Virginia Date of Birth Confirmation</a></li>
+                        <li class="submenuItem"><a href="pg.html">Pay Traffic Fees and Offenses</a></li>
+                        <li class="submenuItem"><a href="pg.html">Assistance with Protective Order (I-CAN!)</a></li>
+                        <li class="submenuItem"><a href="pg.html">Electronic Voucher Payment System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Appellate Courts Electronic Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Judiciary E-Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Date of Birth Confirmation</a></li>
                     </ul>
                 </div>
             </li>
@@ -178,8 +178,8 @@
             <li class="menuItem"><i class="fa fa-fw fa-question"></i><a href="#">     Help and FAQ</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li class="submenuItem"><a href="#">Glossary of Terms</a></li>
-                        <li class="submenuItem"><a href="#">Site Feedback Form</a></li>
+                        <li class="submenuItem"><a href="pg.html">Glossary of Terms</a></li>
+                        <li class="submenuItem"><a href="pg.html">Site Feedback Form</a></li>
                     </ul>
                 </div>
             </li>
@@ -207,7 +207,7 @@
         <div id="calculator" class="shadow">
             <div id="calculatorform" style="border-bottom: 1px solid #000">
                 <b>Circuit Courts:</b>
-                <select id="circuitcourt">
+                <select id="circuitcourt" required>
                     <option value="" disabled selected>Select Court</option>
                     <optgroup label="Recent">
                         <option value="loudoun">Loudoun Circuit</option>
@@ -230,7 +230,7 @@
                 <br>
                 <br>
                 <b>Step 1) </b> What type of civil case do you want to file?
-                <select id="casetype">
+                <select id="casetype" required>
                     <option value="" disabled selected>Select Case Type</option>
                         <option value="other">Accounting</option>
                         <option value="other">Adoption - Domestic</option>
@@ -283,7 +283,9 @@
 
             </div>    
             <br>
-            <div id="calculateBtnContainer" style="display:inline-block;">
+            <div id="calculateBtnContainer" style="display: flex;
+            flex-direction: row;
+            align-items: center;">
                 <button id="calculateBtn" onclick="calculateFees()">Calculate</button>
                 <div id="calculatoroutput">
                     <!-- Output content will be displayed here -->
@@ -295,13 +297,19 @@
                 // Get user inputs
                 var selectedCourt = document.getElementById("circuitcourt").value;
                 var selectedCaseType = document.getElementById("casetype").value;
-
-                // Check inputs and calculate fees accordingly
-                var totalFees = (selectedCourt === "Fairfax Court" && selectedCaseType === "Adoption - Domestic") ? 91 : 82;
-
-                // Display the calculated total in the output div
-                document.getElementById("calculatoroutput").innerHTML = "$"+totalFees;
-                document.getElementById("calculatoroutput").style.display = "block";
+    
+                // Check if both fields are selected
+                if (selectedCourt && selectedCaseType) {
+                    // Check inputs and calculate fees accordingly
+                    var totalFees = (selectedCourt === "fairfax" && selectedCaseType === "Adoption - Domestic") ? 91 : 86;
+    
+                    // Display the calculated total in the output div
+                    var outputElement = document.getElementById("calculatoroutput");
+                    outputElement.innerHTML = "Total Fees: $" + totalFees;
+                    outputElement.style.display = "block";
+                } else {
+                    alert("Please select both the court and case type before calculating fees.");
+                }
             }
         </script>
     </div>
