@@ -110,16 +110,14 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         #calculatoroutput {
-            display: none;
+            display: inline-block;
             width: 70px;
             padding: 10px;
             padding-left: 10px;
-            /* margin-top: 10px; */
-
-
         }
     </style>
 </head>
@@ -233,7 +231,7 @@
                 <select id="casetype" required>
                     <option value="" disabled selected>Select Case Type</option>
                         <option value="other">Accounting</option>
-                        <option value="other">Adoption - Domestic</option>
+                        <option value="adoptiondom">Adoption - Domestic</option>
                         <option value="other">Adoption - Foreign</option>
                         <option value="other">Aid and Guidance</option>
                         <option value="other">Ammend Vital Record</option>
@@ -283,9 +281,7 @@
 
             </div>    
             <br>
-            <div id="calculateBtnContainer" style="display: flex;
-            flex-direction: row;
-            align-items: center;">
+            <div id="calculateBtnContainer" style="display: flex; flex-direction: row; align-items: center;">
                 <button id="calculateBtn" onclick="calculateFees()">Calculate</button>
                 <div id="calculatoroutput">
                     <!-- Output content will be displayed here -->
@@ -294,16 +290,12 @@
         </div>
         <script>
             function calculateFees() {
-                // Get user inputs
                 var selectedCourt = document.getElementById("circuitcourt").value;
                 var selectedCaseType = document.getElementById("casetype").value;
     
-                // Check if both fields are selected
                 if (selectedCourt && selectedCaseType) {
-                    // Check inputs and calculate fees accordingly
-                    var totalFees = (selectedCourt === "fairfax" && selectedCaseType === "Adoption - Domestic") ? 91 : 86;
+                    var totalFees = (selectedCourt === "fairfax" && selectedCaseType === "adoptiondom") ? 91 : 86;
     
-                    // Display the calculated total in the output div
                     var outputElement = document.getElementById("calculatoroutput");
                     outputElement.innerHTML = "Total Fees: $" + totalFees;
                     outputElement.style.display = "block";
