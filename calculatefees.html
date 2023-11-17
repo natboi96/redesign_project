@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculate Fees</title>
+    <title>Calculate Court Fees</title>
     <style>
         /* Basic styling for the logo bar and sidebar */
         body {
@@ -28,6 +28,7 @@
         #content {
             margin-left: 220px;
             padding: 20px;
+            margin-top: -25px;
         }
         /* Style for the navigation menu items */
         ul {
@@ -101,6 +102,25 @@
         .tab-content {
             display: none;
         }
+
+        #calculateBtn {
+            background-color: #415a8d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #calculatoroutput {
+            display: none;
+            width: 70px; /* Adjust the width as needed */
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body>
@@ -165,14 +185,12 @@
             </li>
         </ul>
     </div>
-    <div id="content">
+    <div id="content" style="padding:3%">
         <div id="info">
             <p>Home > Online Services > Calculate Fees</p>
             <h3>Circuit Court Civil Filing Fee Calculation</h3>
-            This is the civil filing fees calculation system for circuit courts in Virginia. <br>
-            IMPORTANT! Limited information about the calculation of fees for civil processes is located at " <a href="#" class="hyperlink">How To Calculate Civil Filing Fees for Circuit Courts.</a>."
-            If you have specific questions about the calculations or if the case type is not listed, contact the civil division of your local circuit court. <br>
-            Note: This site is intended for general public use only. Commonwealth, Local, or Federal Agency filers should contact your local circuit court to determine applicable filing fees for your agency. <br>
+            <b>Note: </b>If you have specific questions about the calculations or if the case type is not listed, contact the civil division of your local circuit court.
+           <!-- <br>
             <h4>Forms for Civil Cases:</h4>
             *Please note that most civil cases filed in the Circuit Court are commenced by a complaint or petition, not a standard form. However, there are some Circuit Court forms that may be utilized. For a list of Circuit Court forms, click here: 
             <a href="#" class="hyperlink">Circuit Court Forms: Civil</a> <br> <br>
@@ -180,12 +198,16 @@
             <a href="#" class="hyperlink">Form DC-472- Petition for Reinstatement of Driving Privileges -Failure to Satisfy Judgement</a> <br> <br>
             <a href="#" class="hyperlink">Call the circuit court to see if FORM CC-1416 Cover Sheet For Filing Civil Actions required. If so, click here FORM CC- 1416</a> <br>
             If a form is not available for your filing type, you may need to seek the advice of an attorney.
-        </div>
+        </div> -->
         <br>
+        <br>
+        <hr>
+        <br>
+        <!-- START OF CALCULATION FORM -->
         <div id="calculator" class="shadow">
             <div id="calculatorform" style="border-bottom: 1px solid #000">
                 <b>Circuit Courts:</b>
-                <select id="circuitcourt" >
+                <select id="circuitcourt">
                     <option value="" disabled selected>Select Court</option>
                     <optgroup label="Recent">
                         <option value="loudoun">Loudoun Circuit</option>
@@ -206,7 +228,8 @@
                     </optgroup>
                 </select>
                 <br>
-                What type of civil case do you want to file?
+                <br>
+                <b>Step 1) </b> What type of civil case do you want to file?
                 <select id="casetype">
                     <option value="" disabled selected>Select Case Type</option>
                         <option value="other">Accounting</option>
@@ -220,52 +243,67 @@
                     </optgroup>
                 </select>
                 <br>
-                <b>Note:</b> Contact your local <u>circuit court</u> for any filing fees associated with a civil process that is not listed above.
+                <br>
+                <b>Step 2) </b> If you are filing a civil action for the award of monetary damages, enter the amount you are seeking to recover (i.e, lawsuit amount).
+                <br>
+                <input type="text" id="damages" placeholder="$" pattern="[0-9]*" inputmode="numeric" style="margin-left: 59px; margin-top: 5px;">
                 <br>
                 <br>
-                If you are filing a civil action for the award of monetary damages, enter the amount you are seeking to recover (i.e, lawsuit amount).
-                <br>
-                <input type="text" id="damages" placeholder="$" pattern="[0-9]*" inputmode="numeric">
-                <br>
-                <br>
-                Do you want to have the Virginia sheriff or high constable serve (deliver) a copy of the civil case to the Defendant/Respondent at the address you provide?
+                <b>Step 3) </b> Do you want to have the Virginia sheriff or high constable deliver a copy of the civil case to the Defendant/Respondent at the address you provide?
                 <br>
                 <div>
                     <label>
-                        <input type="radio" name="yesnosheriff" value="yes"> Yes
+                        <input type="radio" name="yesnosheriff" value="yes" style="margin-left:59px;"> Yes
                     </label>
                 </div>
                 <div>
                     <label>
-                        <input type="radio" name="yesnosheriff" value="no"> No (Press the calculate button)
+                        <input type="radio" name="yesnosheriff" value="no" style="margin-left:59px;"> No (Press the calculate button)
                     </label>
                 </div>
                 <br>
-                If Garnishment or Interrogatory, is a new levy of FiFa needed?
+                <div style="margin-left:59px; margin-bottom:-17px;">If Garnishment or Interrogatory, is a new levy of FiFa needed?</div>
                 <br>
                 <div>
                     <label>
-                        <input type="radio" name="yesnofifa" value="yes"> Yes
+                        <input type="radio" name="yesnofifa" value="yes" style="margin-left: 59px;"> Yes
                     </label>
                 </div>
                 <div>
                     <label>
-                        <input type="radio" name="yesnofifa" value="no"> No (Press the calculate button)
+                        <input type="radio" name="yesnofifa" value="no" style="margin-left:59px;"> No (Press the calculate button)
                     </label>
                 </div>
                 <br>
+
+                <b>Step 4) </b> How many defendants/respondents are to be served by the Virginia sheriff or high constable? (In State)
                 <br>
-                How many defendants/respondents are to be served by the Virginia sheriff or high constable? (In State)
+                <input type="text" id="defendants" pattern="[0-9]*" inputmode="numeric" placeholder="#" style="margin-left: 59px; margin-top: 5px;">
                 <br>
-                <input type="text" id="defendants" pattern="[0-9]*" inputmode="numeric">
-                <br>
-                <br>
-                Press the <b>Calculate</b> button to display the total filing fees required based on the information provided above.
-            </div>
-            <div id="calculatoroutput">
-                p
+
+            </div>    
+            <br>
+            <div id="calculateBtnContainer" style="display:inline-block;">
+                <button id="calculateBtn" onclick="calculateFees()">Calculate</button>
+                <div id="calculatoroutput">
+                    <!-- Output content will be displayed here -->
+                </div>
             </div>
         </div>
+        <script>
+            function calculateFees() {
+                // Get user inputs
+                var selectedCourt = document.getElementById("circuitcourt").value;
+                var selectedCaseType = document.getElementById("casetype").value;
+
+                // Check inputs and calculate fees accordingly
+                var totalFees = (selectedCourt === "Fairfax Court" && selectedCaseType === "Adoption - Domestic") ? 91 : 82;
+
+                // Display the calculated total in the output div
+                document.getElementById("calculatoroutput").innerHTML = "$"+totalFees;
+                document.getElementById("calculatoroutput").style.display = "block";
+            }
+        </script>
     </div>
 </body>
 </html>
