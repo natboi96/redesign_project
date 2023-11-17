@@ -19,7 +19,7 @@
             height: 100px; /* Increased height for the logo bar */
         }
         #sidebar {
-            width: 200px;
+            width: 240px;
             background-color: #333;
             color: #fff;
             position: fixed;
@@ -28,30 +28,29 @@
         #content {
             margin-left: 220px;
             padding: 20px;
+            margin-top: -25px;
         }
         /* Style for the navigation menu items */
         ul {
             list-style-type: none;
             padding: 0;
         }
-        .bulletedul {
-            list-style-type: disc;
-        }
         .submenu {
-            list-style-type: disc;
-            list-style-position: outside; /* Place the bullets outside the text */
-            font-size: 16px; /* Adjust the bullet size */
-            color: #fff; /* Set bullet color */
+            text-decoration:underline;
         }
+        .submenuItem {
+            padding: 8px;
+        }
+
         .menuItem {
-            padding: 10px;
-            text-align: center;
+            padding: 6%;
+            text-align: left;
             position: relative; /* Added for positioning the dropdown */
             transition: all 0.2s;
         }
         .menuItemHome {
-            padding: 10px;
-            text-align: center;
+            padding: 6%;
+            text-align: left;
             position: relative; /* Added for positioning the dropdown */
             transition: all 0.2s;
         }
@@ -92,142 +91,149 @@
             color:black; 
             text-decoration: underline;
         }
+
+        .bulletedul {
+            list-style-type: disc; 
+            margin-left: 20px; 
+        }
+
+        .bulletedul li {
+            margin-bottom: 10px;
+        }
+
     </style>
 </head>
 <body>
     <div id="logo-bar">
         <h1>Virginia's Judicial System</h1>
     </div>
+    
     <div id="sidebar">
-        <input type="text" id="text-input" placeholder="Search" style="max-width:fit-content">
+        <!-- icons for sidebar menu -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <input type="text" id="text-input" placeholder="Search" style=" width: 196px;">
+        <script>
+            document.getElementById("text-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            });
+
+            function performSearch() {
+                var userInput = document.getElementById("text-input").value.toLowerCase();
+
+                if (userInput.includes("magistrate") || userInput.includes("complaint")) {
+                    window.location.href = "magistrateservices.html";
+                } else if (userInput.includes("fee") || userInput.includes("calculate")) {
+                    window.location.href = "calculatefees.html";
+                } else {
+                    alert("No search results found.");
+                }
+            }
+        </script>
+        
         <ul>
-            <li class="menuItemHome"><a href="index.html">Home</a>
+            <li class="menuItemHome"><i class="fa fa-fw fa-home"></i><a href="index.html">     Home</a>
             </li>
-            <li class="menuItem"><a href="#">Virginia's Court System</a>
+            <li class="menuItem"><i class="fa fa-fw fa-gavel"></i><a href="#">     Court Services</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li><a href="#">Virginia Courts in Briefs</a></li>
-                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
-                        <li><a href="#">Supreme Court of Virginia</a></li>
-                        <li><a href="#">Court of Appeals of Virginia</a></li>
-                        <li><a href="#">Circuit Courts</a></li>
-                        <li><a href="#">General District Courts</a></li>
-                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
-                        <li><a href="#">Magistrate Services</a></li>
-                        <li><a href="#">Special Justices</a></li>
-                        <li><a href="#">Employment Opportunities</a></li>
+                        <li class="submenuItem"><a href="pg.html">Supreme Court of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Court of Appeals of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Circuit Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">General District Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">Juvenile and Domestic Relations District Courts</a></li>
+                        <li class="submenuItem"><a href="magistrateservices.html">Magistrate Court</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="menuItem"><a href="#">Online Services</a>
+            <li class="menuItem"><i class="fa fa-fw fa-credit-card"></i><a href="#">     Payment & File Services</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li><a href="calculatefees.html">Calculate Fees</a></li>
-                        <li><a href="#">Pay Traffic Fees and Offenses</a></li>
-                        <li><a href="#">Assistance with Protective Order (I-CAN!)</a></li>
-                        <li><a href="#">Electronic Voucher Payment System</a></li>
-                        <li><a href="#">Virginia Appellate Courts Electronic Filing System</a></li>
-                        <li><a href="#">Virginia Judiciary E-Filing System</a></li>
-                        <li><a href="#">Virginia Date of Birth Confirmation</a></li>
+                        <li class="submenuItem"></i><a href="calculatefees.html">Calculate Court Fees</a></li>
+                        <li class="submenuItem"><a href="pg.html">Pay Traffic Fees and Offenses</a></li>
+                        <li class="submenuItem"><a href="pg.html">Assistance with Protective Order (I-CAN!)</a></li>
+                        <li class="submenuItem"><a href="pg.html">Electronic Voucher Payment System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Appellate Courts Electronic Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Judiciary E-Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Date of Birth Confirmation</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="menuItem"><a href="#">Directories</a>
+            <li class="menuItem"><i class="fa fa-fw fa-book"></i><a href="#">     Directories</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li><a href="#">Virginia Courts in Briefs</a></li>
-                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
-                        <li><a href="#">Supreme Court of Virginia</a></li>
-                        <li><a href="#">Court of Appeals of Virginia</a></li>
-                        <li><a href="#">Circuit Courts</a></li>
-                        <li><a href="#">General District Courts</a></li>
-                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
-                        <li><a href="#">Magistrate Services</a></li>
-                        <li><a href="#">Special Justices</a></li>
-                        <li><a href="#">Employment Opportunities</a></li>
+                        <li class="submenuItem"><a href="#">Not Implemented</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="menuItem"><a href="#">Programs</a>
+            <li class="menuItem"><i class="fa fa-fw fa-calendar"></i><a href="#">     Programs</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li><a href="#">Virginia Courts in Briefs</a></li>
-                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
-                        <li><a href="#">Supreme Court of Virginia</a></li>
-                        <li><a href="#">Court of Appeals of Virginia</a></li>
-                        <li><a href="#">Circuit Courts</a></li>
-                        <li><a href="#">General District Courts</a></li>
-                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
-                        <li><a href="#">Magistrate Services</a></li>
-                        <li><a href="#">Special Justices</a></li>
-                        <li><a href="#">Employment Opportunities</a></li>
+                        <li class="submenuItem"><a href="#">Not Implemented</a></li>
                     </ul>
                 </div>
             </li>
-            <li class="menuItem"><a href="#">Help and FAQ</a>
+            <li class="menuItem"><i class="fa fa-fw fa-question"></i><a href="#">     Help and FAQ</a>
                 <div class="dropdown">
                     <ul class="submenu">
-                        <li><a href="#">Virginia Courts in Briefs</a></li>
-                        <li><a href="#">States of the Judiciary Annual Reports</a></li>
-                        <li><a href="#">Supreme Court of Virginia</a></li>
-                        <li><a href="#">Court of Appeals of Virginia</a></li>
-                        <li><a href="#">Circuit Courts</a></li>
-                        <li><a href="#">General District Courts</a></li>
-                        <li><a href="#">Juvenile and Domestic Relations District Courts</a></li>
-                        <li><a href="#">Magistrate Services</a></li>
-                        <li><a href="#">Special Justices</a></li>
-                        <li><a href="#">Employment Opportunities</a></li>
+                        <li class="submenuItem"><a href="pg.html">Glossary of Terms</a></li>
+                        <li class="submenuItem"><a href="pg.html">FAQs</a></li>
+                        <li class="submenuItem"><a href="feedback.html">Site Feedback Form</a></li>
                     </ul>
                 </div>
             </li>
         </ul>
     </div>
-    <div id="content">
-        <p>Home > Virginia's Court System > Magistrate Services</p>
+   
+    <div id="content" style="padding:3%">
+        <p ><a href="index.html" style="color: black;">Home</a> > Court Services > <a href="magistrateservices.html" style="color: black;">Magistrate Court</a></p>
         <h3>Magistrate Services</h3>
-        <a href="#" class="hyperlink">About</a>
+        <a href="pg.html" style="color:blue;" class="hyperlink">About the Magistrate Court</a>
 
         <div>
-            <h4>Contact Information</h4>
+            <h4 style="margin-bottom:-5px; margin-top: 30px;">Contact Information: </h4>
             <ul class="bulletedul">
                 <li>
-                    Director - Jonathan Green<br>Phone - (804) 786-6455
+                    Director - Jonathan Green<br>Phone: (804) 786-6455
                 </li>
-                <li>Administrative Assistant - Jennifer Heishman <br> Phone - (804) 786-8476 <br> Email: magistrateservices-adminsupport@vacourts.gov</li>
+                <li>Administrative Assistant - Jennifer Heishman <br> Phone: (804) 786-8476 <br></li>
+                <li>Email: magistrateservices-adminsupport@vacourts.gov</li>
                 <li>
-                    <a href="#" class="hyperlink">Regional Magistrate Supervisors</a>
+                    <a href="pg.html" style="color:blue;"  class="hyperlink">Regional Magistrate Supervisors</a>
                 </li>
                 <li>
-                    <a href="#" class="hyperlink">Chief Magistrates</a>
+                    <a href="pg.html" style="color:blue;" class="hyperlink">Chief Magistrates</a>
                 </li>
             </ul>
         </div>
 
         <div>
-            <h4>Complaint Procedure</h4>
-            <ul>
-                <li><a href="#" class="hyperlink">Instructions</a> <br> Explains how to file a complaint against a magistrate and what happens when a complaint is filed</li>
-                <li><a href="complaint_form.pdf" class="hyperlink">Magistrate Complaint Form</a></li>
+            <h4 style="margin-bottom:-5px; margin-top: 30px;">Complaint Procedure:</h4>
+            <ul class="bulletedul">
+                <li><a href="complaint_form_inst.pdf" style="color:blue;"  class="hyperlink">Instructions for Filing Complaint</a></li>
+                <li><a href="complaint_form.pdf" style="color:blue;" class="hyperlink">Magistrate Complaint Form</a></li>
             </ul>
         </div>
 
         <div>
-            <h4>Other</h4>
-            <ul>
-                <li><a href="#" class="hyperlink">Magistrate System Organizational Chart</a></li>
-                <li><a href="#" class="hyperlink">Map Showing Virginia's Magisterial Regions</a> <br> Shows eight magisterial regions and lists Regional Supervisor, Chief Magistrates and magistrates serving each region</li>
+            <h4 style="margin-bottom:-5px; margin-top: 30px;">Organizational Chart and Regions:</h4>
+            <ul class="bulletedul">
+                <li><a href="pg.html" style="color:blue;" class="hyperlink">Magistrate System Organizational Chart</a></li>
+                <li><a href="pg.html" style="color:blue;" class="hyperlink">Map Showing Virginia's Magisterial Regions</a> <br> </li>
             </ul>
         </div>
 
-        <div>
-            <h4>Resources and Reference Materials</h4>
+        <!-- <div>
+            <h4>Resources and Reference Materials</h4>f
             <ul>
                 <li><a href="#" class="hyperlink">Americans with Disabilities Act (ADA)</a> <br> Provides basic information about the requirements fo the ADA as they pertain to Virginia's Judicial System, including how to request an accommodation.</li>
                 <li><a href="#" class="hyperlink">Canons of Conduct for Virginia's Magistrates</a></li>
                 <li><a href="#" class="hyperlink">Chapter 3 of Title 19.2 of the Code of Virginia</a> <br> Entitled "Magistrates," this Chapter addresses the appointment, supervision, jurisdiction, and powers of magistrates</li>
                 <li><a href="#" class="hyperlink">Magistrate Manual</a></li>
             </ul>    
-        </div>
+        </div> -->
     </div>
 </body>
 </html>
