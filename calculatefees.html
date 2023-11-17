@@ -103,6 +103,11 @@
             display: none;
         }
 
+        #calculateBtnContainer {
+            display: flex;
+            align-items: center;
+        }
+
         #calculateBtn {
             background-color: green;
             color: #fff;
@@ -111,13 +116,15 @@
             border-radius: 4px;
             cursor: pointer;
             margin-right: 10px;
+            margin-top: -5px;
         }
 
         #calculatoroutput {
             display: inline-block;
-            width: 70px;
+            /* width: 70px; */
             padding: 10px;
             padding-left: 10px;
+            margin-top: -5px;
         }
     </style>
 </head>
@@ -224,7 +231,7 @@
         <br>
         <!-- START OF CALCULATION FORM -->
         <div id="calculator" class="shadow">
-            <div id="calculatorform" style="border-bottom: 1px solid #000">
+            <div id="calculatorform" style="margin-top: -5px;border-bottom: 1px solid #000">
                 <b>Circuit Courts:</b>
                 <select id="circuitcourt" required>
                     <option value="" disabled selected>Select Court</option>
@@ -268,7 +275,7 @@
                 <input type="text" id="damages" placeholder="$" pattern="[0-9]*" inputmode="numeric" style="margin-left: 59px; margin-top: 5px;">
                 <br>
                 <br>
-                <b>Step 3) </b> Do you want to have the Virginia sheriff or high constable deliver a copy of the civil case to the Defendant/Respondent at the address you provide?
+                <b>Step 3) </b> Do you want to have the Virginia sheriff or high constable deliver a copy of the civil case to the defendant/respondent at the address you provide?
                 <br>
                 <div>
                     <label>
@@ -295,9 +302,9 @@
                 </div>
                 <br>
 
-                <b>Step 4) </b> How many defendants/respondents are to be served by the Virginia sheriff or high constable? (In State)
+                <b>Step 4) </b> How many defendants/respondents are to be served by the Virginia sheriff or high constable (in state)?
                 <br>
-                <input type="text" id="defendants" pattern="[0-9]*" inputmode="numeric" placeholder="#" style="margin-left: 59px; margin-top: 5px;">
+                <input type="text" id="defendants" pattern="[0-9]*" inputmode="numeric" placeholder="#" style="margin-left: 59px; margin-top: 5px; margin-bottom: 3%;">
                 <br>
 
             </div>    
@@ -305,7 +312,7 @@
             <div id="calculateBtnContainer" style="display: flex; flex-direction: row; align-items: center;">
                 <button id="calculateBtn" onclick="calculateFees()">Calculate</button>
                 <div id="calculatoroutput">
-                    <!-- Output content will be displayed here -->
+                    <!-- Total fees output from calculator here -->
                 </div>
             </div>
         </div>
